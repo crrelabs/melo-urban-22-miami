@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban 22 Miami | Luxury Rental Apartments in Edgewater</title>
+    <meta name="description" content="Urban 22 — luxury rental apartments at 2222 NE 2nd Ave, Miami FL 33137. Premium living in the heart of Edgewater.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1a2a3a',
+                        'navy-light': '#243a4d',
+                        gold: '#c9a84c',
+                        'gold-light': '#d4b965',
+                    },
+                    fontFamily: {
+                        lato: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lato', sans-serif; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .gallery-img { transition: transform 0.5s ease, filter 0.5s ease; }
+        .gallery-img:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #c9a84c; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        /* Lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; z-index: 101; }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 3rem; cursor: pointer; padding: 0 20px; user-select: none; }
+        .lightbox-prev { left: 10px; }
+        .lightbox-next { right: 10px; }
+    </style>
+</head>
+<body class="bg-navy text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-navy/95 backdrop-blur-sm z-50 border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#hero" class="text-2xl font-light tracking-[0.3em] text-gold">URBAN 22</a>
+            <div class="hidden md:flex gap-8 text-sm tracking-widest uppercase">
+                <a href="#gallery" class="nav-link text-white/80 hover:text-gold transition">Gallery</a>
+                <a href="#floorplans" class="nav-link text-white/80 hover:text-gold transition">Floor Plans</a>
+                <a href="#contact" class="nav-link text-white/80 hover:text-gold transition">Contact</a>
+            </div>
+            <a href="tel:3053772200" class="hidden md:block text-gold text-sm tracking-wider">305.377.2200</a>
+            <!-- Mobile menu button -->
+            <button id="menuBtn" class="md:hidden text-gold text-2xl">&#9776;</button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-navy border-t border-gold/20 px-6 py-4 space-y-3">
+            <a href="#gallery" class="block text-white/80 hover:text-gold tracking-widest uppercase text-sm">Gallery</a>
+            <a href="#floorplans" class="block text-white/80 hover:text-gold tracking-widest uppercase text-sm">Floor Plans</a>
+            <a href="#contact" class="block text-white/80 hover:text-gold tracking-widest uppercase text-sm">Contact</a>
+            <a href="tel:3053772200" class="block text-gold text-sm tracking-wider">305.377.2200</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="images/DUSK-1.jpg" alt="Urban 22 Miami at dusk" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="relative text-center px-6 fade-in">
+            <div class="w-24 h-px bg-gold mx-auto mb-8"></div>
+            <h1 class="text-6xl md:text-8xl font-light tracking-[0.4em] text-gold mb-4">URBAN 22</h1>
+            <p class="text-lg md:text-xl tracking-[0.25em] uppercase text-white/70 mb-6">Luxury Living in Edgewater</p>
+            <div class="w-24 h-px bg-gold mx-auto mb-10"></div>
+            <p class="text-white/60 tracking-wider mb-2">2222 NE 2nd Ave, Miami FL 33137</p>
+            <p class="text-gold tracking-wider text-lg mb-8">305.377.2200</p>
+            <a href="#gallery" class="inline-block border border-gold text-gold px-10 py-3 tracking-widest uppercase text-sm hover:bg-gold hover:text-navy transition-all duration-300">Explore</a>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-24 bg-navy">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-gold tracking-[0.3em] uppercase text-sm mb-3">Discover</p>
+                <h2 class="text-4xl md:text-5xl font-light tracking-wider">Gallery</h2>
+                <div class="w-16 h-px bg-gold mx-auto mt-6"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(0)"><img src="images/12-web-or-mls-NE-2nd-Ave-001.jpg" alt="Urban 22 Building" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(1)"><img src="images/15-web-or-mls-NE-2nd-Ave-004.jpg" alt="Urban 22 Exterior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(2)"><img src="images/CLOSE-UP-DUSK.jpg" alt="Urban 22 Dusk Close-up" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(3)"><img src="images/DAYTIME41.jpg" alt="Urban 22 Daytime" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(4)"><img src="images/DAYTIME-3.jpg" alt="Urban 22 Daytime View" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(5)"><img src="images/DAYTIME-4.jpg" alt="Urban 22 Daytime Angle" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(6)"><img src="images/DAYTIME21.jpg" alt="Urban 22 Building View" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(7)"><img src="images/Santi-1.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(8)"><img src="images/Santi-2.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(9)"><img src="images/Santi-3.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(10)"><img src="images/Santi-4.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(11)"><img src="images/Santi-5.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(12)"><img src="images/Santi-6.jpg" alt="Urban 22 Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(13)"><img src="images/1-web-or-mls-NE-2nd-Ave-Unit-1525-001.jpg" alt="Unit Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(14)"><img src="images/2-web-or-mls-NE-2nd-Ave-Unit-1525-002.jpg" alt="Unit Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(15)"><img src="images/3-web-or-mls-NE-2nd-Ave-Unit-1525-003.jpg" alt="Unit Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(16)"><img src="images/6-web-or-mls-NE-2nd-Ave-Unit-1525-006.jpg" alt="Unit Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(17)"><img src="images/11-web-or-mls-NE-2nd-Ave-Unit-1525-011.jpg" alt="Unit Interior" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(18)"><img src="images/16-web-or-mls-NE-2nd-Ave-005.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(19)"><img src="images/18-web-or-mls-NE-2nd-Ave-007.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(20)"><img src="images/20-web-or-mls-NE-2nd-Ave-009.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(21)"><img src="images/21-web-or-mls-NE-2nd-Ave-010.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(22)"><img src="images/22-web-or-mls-NE-2nd-Ave-011.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(23)"><img src="images/25-web-or-mls-NE-2nd-Ave-014.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(24)"><img src="images/26-web-or-mls-NE-2nd-Ave-015.jpg" alt="Urban 22 Amenities" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+                <div class="overflow-hidden rounded cursor-pointer fade-in" onclick="openLightbox(25)"><img src="images/DUSK-1.jpg" alt="Urban 22 at Dusk" class="gallery-img w-full h-64 object-cover" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();navigateLightbox(-1)">&#10094;</span>
+        <img id="lightboxImg" src="" alt="Gallery image">
+        <span class="lightbox-nav lightbox-next" onclick="event.stopPropagation();navigateLightbox(1)">&#10095;</span>
+    </div>
+
+    <!-- Floor Plans -->
+    <section id="floorplans" class="py-24 bg-navy-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-gold tracking-[0.3em] uppercase text-sm mb-3">Residences</p>
+                <h2 class="text-4xl md:text-5xl font-light tracking-wider">Floor Plans</h2>
+                <div class="w-16 h-px bg-gold mx-auto mt-6"></div>
+            </div>
+            <div class="mb-12 fade-in">
+                <div class="bg-navy/50 rounded-lg p-6 text-center">
+                    <h3 class="text-gold tracking-wider mb-4 text-lg">Typical Floor Layout</h3>
+                    <img src="floorplans/TYPICAL-CLEAN-no-center-units.jpg" alt="Typical Floor Plan" class="mx-auto max-w-full rounded shadow-lg cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 1</h3>
+                    <img src="floorplans/UNIT-1.jpg" alt="Unit 1 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 4</h3>
+                    <img src="floorplans/UNIT-4.jpg" alt="Unit 4 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 6</h3>
+                    <img src="floorplans/UNIT-6.jpg" alt="Unit 6 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 8</h3>
+                    <img src="floorplans/UNIT-8.jpg" alt="Unit 8 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 12</h3>
+                    <img src="floorplans/UNIT-12.jpg" alt="Unit 12 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 16</h3>
+                    <img src="floorplans/UNIT-16.jpg" alt="Unit 16 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 20</h3>
+                    <img src="floorplans/UNIT-20.jpg" alt="Unit 20 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+                <div class="bg-navy/50 rounded-lg p-4 text-center fade-in hover:bg-navy/70 transition">
+                    <h3 class="text-gold tracking-wider mb-3">Unit 30</h3>
+                    <img src="floorplans/UNIT-30.jpg" alt="Unit 30 Floor Plan" class="w-full rounded cursor-pointer hover:opacity-90 transition" onclick="window.open(this.src)" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-navy">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-gold tracking-[0.3em] uppercase text-sm mb-3">Get In Touch</p>
+                <h2 class="text-4xl md:text-5xl font-light tracking-wider">Contact Us</h2>
+                <div class="w-16 h-px bg-gold mx-auto mt-6"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="fade-in space-y-8">
+                    <div>
+                        <h3 class="text-gold tracking-wider uppercase text-sm mb-3">Address</h3>
+                        <p class="text-white/70 text-lg">2222 NE 2nd Ave<br>Miami, FL 33137</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gold tracking-wider uppercase text-sm mb-3">Phone</h3>
+                        <a href="tel:3053772200" class="text-white/70 text-lg hover:text-gold transition">305.377.2200</a>
+                    </div>
+                    <div>
+                        <h3 class="text-gold tracking-wider uppercase text-sm mb-3">Email</h3>
+                        <a href="mailto:info@urban22miami.com" class="text-white/70 text-lg hover:text-gold transition">info@urban22miami.com</a>
+                    </div>
+                    <!-- Map -->
+                    <div class="rounded-lg overflow-hidden h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.3!2d-80.191!3d25.795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b6a0f0000001%3A0x1!2s2222+NE+2nd+Ave%2C+Miami%2C+FL+33137!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="opacity-80"></iframe>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <form action="https://formsubmit.co/info@urban22miami.com" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="Urban 22 Website Inquiry">
+                        <input type="hidden" name="_template" value="table">
+                        <div>
+                            <label class="block text-gold tracking-wider uppercase text-sm mb-2">Name</label>
+                            <input type="text" name="name" required class="w-full bg-navy-light border border-gold/30 rounded px-4 py-3 text-white focus:border-gold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-gold tracking-wider uppercase text-sm mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full bg-navy-light border border-gold/30 rounded px-4 py-3 text-white focus:border-gold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-gold tracking-wider uppercase text-sm mb-2">Phone</label>
+                            <input type="tel" name="phone" class="w-full bg-navy-light border border-gold/30 rounded px-4 py-3 text-white focus:border-gold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-gold tracking-wider uppercase text-sm mb-2">Message</label>
+                            <textarea name="message" rows="5" required class="w-full bg-navy-light border border-gold/30 rounded px-4 py-3 text-white focus:border-gold focus:outline-none transition resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full border border-gold text-gold px-8 py-3 tracking-widest uppercase text-sm hover:bg-gold hover:text-navy transition-all duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-light border-t border-gold/20 py-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gold tracking-[0.3em] text-lg mb-4">URBAN 22</p>
+            <p class="text-white/40 text-sm tracking-wider mb-2">2222 NE 2nd Ave, Miami FL 33137 &bull; 305.377.2200</p>
+            <p class="text-white/30 text-xs tracking-wider">&copy; 2025 Urban 22 Miami. All rights reserved. A Melo Group Property.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Mobile menu
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+        });
+
+        // Lightbox
+        const galleryImages = [...document.querySelectorAll('#gallery .gallery-img')].map(img => img.src);
+        let currentIdx = 0;
+        function openLightbox(idx) {
+            currentIdx = idx;
+            document.getElementById('lightboxImg').src = galleryImages[idx];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(e) {
+            if (e && e.target !== document.getElementById('lightbox') && e.target !== document.querySelector('.lightbox-close')) return;
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function navigateLightbox(dir) {
+            currentIdx = (currentIdx + dir + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightboxImg').src = galleryImages[currentIdx];
+        }
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; }
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+    </script>
+</body>
+</html>
