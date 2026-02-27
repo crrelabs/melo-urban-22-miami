@@ -28,11 +28,7 @@
         body { font-family: 'Lato', sans-serif; }
         /* Ensure full building visible in hero on all devices */
         @media (max-width: 768px) {
-            #hero { min-height: 80vh; }
-            #hero img { object-position: center center !important; }
-        }
-        @media (min-width: 769px) and (max-aspect-ratio: 4/3) {
-            #hero img { object-position: center top !important; }
+            #hero img { object-fit: contain !important; object-position: center bottom !important; }
         }
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
