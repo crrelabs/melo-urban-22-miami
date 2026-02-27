@@ -26,6 +26,14 @@
     </script>
     <style>
         body { font-family: 'Lato', sans-serif; }
+        /* Ensure full building visible in hero on all devices */
+        @media (max-width: 768px) {
+            #hero { min-height: 80vh; }
+            #hero img { object-position: center center !important; }
+        }
+        @media (min-width: 769px) and (max-aspect-ratio: 4/3) {
+            #hero img { object-position: center top !important; }
+        }
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .gallery-img { transition: transform 0.5s ease, filter 0.5s ease; }
@@ -73,9 +81,9 @@
     </nav>
 
     <!-- Hero -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1a1a2e]">
         <div class="absolute inset-0">
-            <img src="images/DUSK-1.jpg" alt="Urban 22 Miami at dusk" class="w-full h-full object-cover">
+            <img src="images/DUSK-1.jpg" alt="Urban 22 Miami at dusk" class="w-full h-full object-cover" style="object-position: center top;">
             <div class="absolute inset-0 bg-black/40"></div>
         </div>
         <div class="relative text-center px-6 fade-in">
